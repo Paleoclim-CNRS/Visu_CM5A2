@@ -54,7 +54,7 @@ Fill variables in "PARAM" section:
 """
 
 import matplotlib.pyplot as plt
-from utils import (get_unit,
+from tools.process_oce import (get_unit,
                    get_coords_var_v,
                    compute_land_mask,
                    get_subbasin_masks,
@@ -71,7 +71,7 @@ file_in_2        = ''
 file_subbasin_in = ''
 
 # Variable name
-varname = 'so'
+varname = ''
 
 # Longitude/Latitude indice(s) selection
 subbasin_name = 'atlmsk' # default value: 'atlmsk', 'pacmsk', 'indmsk' or 'all'
@@ -126,6 +126,7 @@ plot_limits = [lonlat_lim, depth_lim]
 # PLOT
 #-----------------------------------------------------------------------#
 fig, ax = plt.subplots(figsize=(10, 10))
-vcbar    = plot_cbar(ax, mapp, cmap_param)
+mapp    = plot_var_v(ax, plot_limits, coords, var2plot, contour_lines, cmap_param)
+cbar    = plot_cbar(ax, mapp, cmap_param)
 plot_cbar_legend_v(varname, unit, cbar, time_ind, section, ind)
 #-----------------------------------------------------------------------#

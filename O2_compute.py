@@ -13,7 +13,6 @@ import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
 
-
 # PARAMS
 #-----------------------------------------------------------------------#
 file_msk=''
@@ -22,7 +21,6 @@ file_grid_T=''
 
 file_o2_out = ''
 #-----------------------------------------------------------------------#
-
 
 # LOAD DATASETS AND VARIABLES
 #-----------------------------------------------------------------------#
@@ -33,7 +31,6 @@ ds_grid_T = xr.open_dataset(file_grid_T)
 thetao = np.mean(ds_grid_T.thetao.values, axis=0)
 so = np.mean(ds_grid_T.so.values, axis=0)
 #-----------------------------------------------------------------------#
-
 
 # Compute variables 
 #-----------------------------------------------------------------------#
@@ -58,7 +55,6 @@ O2_SAT4 = np.exp(oxy4)*oxyco*atcox*1e6
 AOU4=O2_SAT4 - oxygen_4
 #-----------------------------------------------------------------------#
 
-
 # Save new dataset in nc file
 #-----------------------------------------------------------------------#
 # Create a new dataset from ptrc_T file keeping only coordinates
@@ -73,12 +69,12 @@ ds_new.oxygen_4.attrs['units'] = '$mmol/m^3$'
 ds_new.O2_SAT4.attrs['units'] = '$mmol/m^3$'
 ds_new.AOU4.attrs['units'] = '$mmol/m^3$'
 
-
 # Saving to netcdf
 ds_new.to_netcdf(file_o2_out)
 #-----------------------------------------------------------------------#
 
-
+# Plot
+#-----------------------------------------------------------------------#
 ind = 20
 
 ds_grid_T.deptht.values[ind]
@@ -88,6 +84,7 @@ plt.figure()
 plt.pcolormesh(oxygen_4[ind,::])
 plt.title('oxygen_4')
 plt.colorbar()
+#-----------------------------------------------------------------------#
 
 # plt.figure()
 # plt.pcolormesh(O2_SAT4[ind,::])

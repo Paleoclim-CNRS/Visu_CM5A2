@@ -19,20 +19,19 @@ Fill variables in "PARAM" section:
     - lat_lim       : [float format], latitude limits for plot
 """
 
-import os
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
-from utils import (disp_grid_coastline,
-                   get_coords_h,
-                   get_unit,
-                   get_proj,
-                   get_bottom_ind,
-                   get_var_bottom,
-                   compute_land_mask,
-                   param4plot,
-                   plot_var_h,
-                   plot_cbar,
-                   plot_cbar_legend_h)
+from tools.process_grid import disp_grid_coastline
+from tools.process_oce import (get_coords_h,
+                               get_unit,
+                               get_proj,
+                               get_bottom_ind,
+                               get_var_bottom,
+                               compute_land_mask,
+                               param4plot,
+                               plot_var_h,
+                               plot_cbar,
+                               plot_cbar_legend_h)
 
 # PARAM
 #-----------------------------------------------------------------------#

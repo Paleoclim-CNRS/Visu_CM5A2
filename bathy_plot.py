@@ -26,28 +26,28 @@ Fill variables in "PARAM" section:
 
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
-from utils import (disp_grid_coastline,
-                   get_coords_h,
-                   get_unit,
-                   get_proj,
-                   get_bottom_ind,
-                   get_var_bottom,
-                   get_subbasin_masks,
-                   compute_cell_surface,
-                   compute_land_mask,
-                   param4plot,
-                   plot_var_h,
-                   plot_cbar,
-                   plot_cbar_legend_h,
-                   hist_bathy_subbasin,
-                   plot_subbasins)
+from tools.process_grid import disp_grid_coastline
+from tools.process_oce import (get_coords_h,
+                               get_unit,
+                               get_proj,
+                               get_bottom_ind,
+                               get_var_bottom,
+                               get_subbasin_masks,
+                               compute_cell_surface,
+                               compute_land_mask,
+                               param4plot,
+                               plot_var_h,
+                               plot_cbar,
+                               plot_cbar_legend_h,
+                               hist_bathy_subbasin,
+                               plot_subbasins)
 
 # PARAM
 #-----------------------------------------------------------------------#
 # Files to load
-file_msk_in      = '/Users/anthony/Documents/Model/Data_CM5A2/C30MaTMP_mesh_mask.nc'
-file_grid_T_in   = '/Users/anthony/Documents/Model/Data_CM5A2/C30MaTotV1-3X_SE_4805_4854_1M_grid_T.nc'
-file_subbasin_in = '/Users/anthony/Documents/Model/Data_CM5A2/subbasins_rupelianTot.nc'
+file_msk_in      = ''
+file_grid_T_in   = ''
+file_subbasin_in = ''
 
 # Bins of depth used for histogram plot
 bins = list(range(0,6000,500)) # Default: list(range(0,6000,500))

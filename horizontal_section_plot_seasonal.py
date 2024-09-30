@@ -32,17 +32,17 @@ Fill variables in "PARAM" section:
 """
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
-from utils import (disp_grid_coastline,
-                   get_coords_h,
-                   get_unit,
-                   get_proj,
-                   get_var_seasonal,
-                   compute_land_mask,
-                   param4plot,
-                   plot_var_h,
-                   subplot_cbar,
-                   subplot_cbar_legend,
-                   subplot_title)
+from tools.process_grid import disp_grid_coastline
+from tools.process_oce import (get_coords_h,
+                               get_unit,
+                               get_proj,
+                               get_var_seasonal,
+                               compute_land_mask,
+                               param4plot,
+                               plot_var_h,
+                               subplot_cbar,
+                               subplot_cbar_legend,
+                               subplot_title)
 
 # PARAM
 #-----------------------------------------------------------------------#
@@ -74,7 +74,6 @@ projection = 'robinson' # default: 'robinson', 'polar_N', 'polar_S'
 lon_lim = [-180,180] # default: [-180,180]
 lat_lim = [-90,90]  # default: [-90,90]
 #-----------------------------------------------------------------------#
-
 
 # Get indices for seasons
 #-----------------------------------------------------------------------#
