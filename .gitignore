@@ -1,3 +1,5 @@
 .DS_Store
 .vscode
 My_tests/
+__pycache__/
+tools/__pycache__/
