@@ -126,10 +126,13 @@ class Atm():
         self.cbar_title_t2m = 't2m (°)'
         #-----------------------------------------------------------------------------#
 
-    def plot_wind(self, projDataIn, projDataOut):
+    def plot_wind(self, projDataIn, projDataOut, plot_limits):
         """"""
         for i in np.arange(0, self.u850.shape[0]):
             fig, ax = plt.subplots(figsize=(self.figXsize, self.figYsize), subplot_kw={'projection': projDataOut})
+
+            # define limits of plot
+            ax.set_extent([plot_limits[0][0], plot_limits[0][1], plot_limits[1][0], plot_limits[1][1]], projDataIn)
 
             # Display meridians and parallels
             ax.gridlines(draw_labels = True) # transform = ccrs.Geodetic(),
@@ -167,11 +170,14 @@ class Atm():
             plt.savefig(pathFilename, format='png', bbox_inches='tight', facecolor='white')
 
 
-    def plot_precip_evap(self, projDataIn, projDataOut):
+    def plot_precip_evap(self, projDataIn, projDataOut, plot_limits):
         """"""
         for i in np.arange(0, self.u850.shape[0]):
             fig, ax = plt.subplots(figsize=(self.figXsize, self.figYsize), subplot_kw={
                 'projection': projDataOut})
+            
+            # define limits of plot
+            ax.set_extent([plot_limits[0][0], plot_limits[0][1], plot_limits[1][0], plot_limits[1][1]], projDataIn)
             
             # Display meridians and parallels
             ax.gridlines(draw_labels=True)  # transform = ccrs.Geodetic(),
@@ -200,10 +206,13 @@ class Atm():
             pathFilename = os.path.join(self.workpath, filename)
             plt.savefig(pathFilename, format='png', bbox_inches='tight', facecolor='white')
 
-    def plot_t2m(self, projDataIn, projDataOut):
+    def plot_t2m(self, projDataIn, projDataOut, plot_limits):
         """"""
         for i in np.arange(0, self.u850.shape[0]):
             fig, ax = plt.subplots(figsize=(self.figXsize, self.figYsize), subplot_kw={'projection': projDataOut})
+
+            # define limits of plot
+            ax.set_extent([plot_limits[0][0], plot_limits[0][1], plot_limits[1][0], plot_limits[1][1]], projDataIn)
 
             # Display meridians and parallels
             ax.gridlines(draw_labels=True)  # transform = ccrs.Geodetic(),

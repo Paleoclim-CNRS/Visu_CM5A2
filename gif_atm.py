@@ -47,6 +47,10 @@ filename_msk = ''
 
 out_path = ''
 
+# Zoom
+lon_lim = [-180,180] # default: [-180,180]
+lat_lim = [-90,90]   # default: [-90,90]
+
 manual_lim_wind     = True # True/False
 contour_z850        = [1250, 1300] # (m)
 range_wind850       = ([0, 10, 1],[10,31,5],) # (m.s^-1)
@@ -71,6 +75,8 @@ time_interv = 250
 
 # Set up plot params
 #--------------------------------------#
+plot_limits = [lon_lim, lat_lim]
+
 ranges = {}
 
 if manual_lim_wind:
@@ -92,12 +98,12 @@ atm = Atm(out_path, filename_atm, filename_T, filename_msk, ranges, palettes)
 
 atm.gen_plot_param(nbContourLines)
 
-atm.plot_wind(projDataIn, projDataOut)
+atm.plot_wind(projDataIn, projDataOut, plot_limits)
 atm.make_gif(time_interv)
 
-atm.plot_precip_evap(projDataIn, projDataOut)
+atm.plot_precip_evap(projDataIn, projDataOut, plot_limits)
 atm.make_gif(time_interv)
 
-atm.plot_t2m(projDataIn, projDataOut)
+atm.plot_t2m(projDataIn, projDataOut, plot_limits)
 atm.make_gif(time_interv)
 #---------------------------------------------------------------------#
