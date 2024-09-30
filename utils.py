@@ -448,7 +448,9 @@ def plot_var_h(axis, proj_in, proj_out, plot_limits, coords, var2plot, contour_l
         warnings.simplefilter("ignore")
         warnings.warn("deprecated", ShapelyDeprecationWarning)
         # warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning)
-        axis.gridlines(crs=ccrs.PlateCarree(), draw_labels=True)
+        gl = axis.gridlines(crs=ccrs.PlateCarree(), draw_labels=True)
+        gl.top_labels = False
+        gl.right_labels = False
     
     # Compute var2plot to be "plotable"
     x, y, masked_z = z_masked_overlap(axis, coords[0], coords[1], var2plot, source_projection=ccrs.Geodetic())
