@@ -41,11 +41,11 @@ warnings.filterwarnings('ignore')
 
 # PARAMS
 #---------------------------------------------------------------------#
-filename_atm = '/Users/anthony/Documents/Model/Data_CM5A2/C30MaTotV1-3X_SE_4805_4854_1M_histmth.nc'
-filename_T   = '/Users/anthony/Documents/Model/Data_CM5A2/C30MaTotV1-3X_SE_4805_4854_1M_grid_T.nc'
-filename_msk = '/Users/anthony/Documents/Model/Data_CM5A2/C30MaTMP_mesh_mask.nc'
+filename_atm = ''
+filename_T   = ''
+filename_msk = ''
 
-out_path = '/Users/anthony/Documents/Model/gif_atm'
+out_path = ''
 
 manual_lim_wind     = True # True/False
 contour_z850        = [1250, 1300] # (m)
